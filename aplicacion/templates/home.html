@@ -1,0 +1,37 @@
+{% extends "plantillaInicio.html" %}
+
+
+{% block title %} Analisis de Ejercicios Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- Topbar Start -->
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">ANALISIS<b> DE EJERCICIOS</b></a>  		
+    </div>
+    <div class="id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
+            {% if user.is_authenticated %}
+            <li>
+                <a data-toggle="dropdown" class="hint-text" href="#">
+                   {{user.username | upper}}  Logout
+                </a>
+                <div class="dropdown-menu form-wrapper">
+                    <a data-toggle="dropdown" class="hint-text" href="perfil/">Perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a data-toggle="dropdown" class="hint-text" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </li> 
+            {% endif %}        
+</ul>
+    </div>
+</nav>
+<!-- Topbar End -->
+
+
+
+
+{% endblock %}
+

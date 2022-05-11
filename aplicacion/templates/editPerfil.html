@@ -1,0 +1,71 @@
+{% extends "plantillaInicio.html" %}
+
+
+{% block title %} Analisis de Ejercicios Home{% endblock %}
+
+{% block content %}
+
+<!-- Topbar Start -->
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">ANALISIS<b> DE EJERCICIOS</b></a>  		
+    </div>
+</nav>
+<!-- Topbar End -->
+
+
+<div class="row">
+<div class="col-md-6 col-lg-8 col-xl-8" style="padding-left: 460px;">
+
+<form action="/updatePerfil/" method="POST"> {%csrf_token%}
+    <h2 class="hint-text" style="text-align: center;">  Editar perfil de usuario</h2>
+
+    <div class="form-group">
+        <input type="hidden" name="id" value="{{usuarios.id}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required="required" value="{{usuarios.nombre}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="apellido"  class="form-control" placeholder="Apellido" required="required" value="{{usuarios.apellido}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="direccion" class="form-control" placeholder="Dirección" required="required" value="{{usuarios.direccion}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="fecha_nac" class="form-control" placeholder="Fecha de Nacimiento" required="required" value="{{usuarios.fecha_nac | date:'Y-m-d'}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="pais" class="form-control" placeholder="Pais" required="required" value="{{usuarios.pais}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="telef" class="form-control" placeholder="Teléfono" required="required" value="{{usuarios.telef}}">
+    </div>
+    <div class="form-group">
+        <input type="text" name="correo" class="form-control" placeholder="Correo" required="required" value="{{usuarios.correo}}">
+    </div>
+    <div class="form-group">
+        <select class="form-control" name="perfil">
+            <option value="{{usuarios.perfil}">Seleccione..</option>
+            <option value="User">Usuario</option>
+            <option value="Admin">Administrador</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <input type="text" name="usuario" class="form-control" placeholder="Usuario" required="required" value="{{usuarios.usuario}}">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" required="required" value="{{usuarios.password}}">
+    </div>
+    <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+</form>
+</div>
+
+
+      </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}
+
